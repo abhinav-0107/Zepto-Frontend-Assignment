@@ -31,7 +31,7 @@ const ChipComponent: React.FC = () => {
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setInputValue(value);
-    setOpenDailog(true);
+    setOpenDailog(true)
     const tempArray = items.filter((item) => {
       if (!JSON.stringify(chips).includes(item)) return true;
     });
@@ -42,7 +42,7 @@ const ChipComponent: React.FC = () => {
   };
 
   const handleChipClick = (item: string) => {
-    console.log({ item });
+    console.log({item})
     setChips((prevChips) => [...prevChips, { id: Date.now(), label: item }]);
     setInputValue("");
     setFilteredItems(
@@ -60,6 +60,7 @@ const ChipComponent: React.FC = () => {
 
   const handleInputKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Backspace" && inputValue === "" && chips.length > 0) {
+      // Highlight and remove the last chip when backspace is pressed with an empty input
       const lastChip = chips[chips.length - 1];
       handleChipRemove(lastChip.id);
       inputRef.current?.focus();
@@ -86,10 +87,10 @@ const ChipComponent: React.FC = () => {
           className="chip-container"
           onClick={() => {
             inputRef.current?.focus();
-            setOpenDailog(!openDailog);
+            setOpenDailog(!openDailog)
           }}
         >
-          {/* chips  */}
+          {/* //chips  */}
           {chips.map((chip) => (
             <div key={chip.id} className="chip">
               {chip.label}
@@ -101,7 +102,7 @@ const ChipComponent: React.FC = () => {
               </button>
             </div>
           ))}
-          {/* input Element  */}
+          {/* //input Element  */}
 
           <div
             className={inputValue?.length ? "" : "input-placeholder-wrapper"}
@@ -117,12 +118,15 @@ const ChipComponent: React.FC = () => {
             value={inputValue}
             onChange={handleInputChange}
             onKeyDown={handleInputKeyDown}
+            // onBlur={() => {
+            //   setOpenDailog(false);
+            // }}
             className="input"
           />
         </div>
 
         {openDailog && (
-          <ul className="item-list">
+          <ul className="item-list dropdown-box">
             {filteredItems.map((item) => (
               <li key={item} onClick={() => handleChipClick(item)}>
                 {item}

@@ -8,7 +8,7 @@
 
 .chip-container {
   display: flex;
-  width: 100%;
+  width: 97.3%;
   align-items: center;
   border: 2px solid lightblue;
   padding: 3px 8px;
@@ -63,21 +63,31 @@
 
 .item-list li {
   cursor: pointer;
-  padding: 5px;
+  padding: 14px 6px;
+  border-bottom: 1px solid lightgray;
 }
 
 .item-list li:hover {
   background-color: #f0f0f0;
 }
 
-.input-placeholder {
+.input-placeholder{
   position: absolute;
-  top: -9px;
-  left: 7px;
-  width: max-content;
-  color: grey;
+    top: -9px;
+    left: 7px;
+    width: max-content;
+    color: grey;
 }
 
-.input-placeholder-wrapper {
+.input-placeholder-wrapper{
   position: relative;
+}
+
+.dropdown-box{
+
+  background: #d3d3d32b;
+  box-shadow: 5px 6px 33px lightblue;
+  border-radius: 9px;
+  padding: 19px 18px;
+
 }
